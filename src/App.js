@@ -17,6 +17,7 @@ import Poke_card from "./components/Poke_card";
 // pages //
 
 import HomePage from "./Pages/HomePage";
+import About from "./Pages/About";
 
 const App = () => {
 
@@ -35,13 +36,13 @@ useEffect( () => {
   return (
  <div className="App">
        <header>
-
-           {/* <NavBar /> */}
-
+           <NavBar />
         </header>
         <main> 
-            <Switch>
-
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
             <Route
                     path="/pokemon/:id"
                     render={(props) => (
@@ -55,10 +56,10 @@ useEffect( () => {
                         <HomePage pokemon={pokemon}{...props} />
                     )}
                     />
-            </Switch>
+          </Switch>
         </main>
          <footer>
-              {/* <Footer /> */}
+              <Footer />
           </footer>
       
     </div>
