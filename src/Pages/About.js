@@ -5,20 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 
 
-const infoAbout = [
-    {
-        "name":"Rosmalina",
-        "about":"asfasdf"
-    },
-    {
-        "name":"Imogen",
-        "about":"asdfasdf"
-    },
-    {
-        "name":"Ellesia",
-        "about":"asdfa"
-    }
-]
+
 
 const About = () => {
 const [pics, setPics] = useState([]);
@@ -60,10 +47,10 @@ return(
             />
                 <CardContent>
                     <Typography variant="headline" component="h3">
-                      {infoAbout.name}
+                     Our names here
                     </Typography>
                     <Typography>
-                        {infoAbout.about}
+                        we can add a something about us here
                     </Typography>
                 </CardContent>
               
