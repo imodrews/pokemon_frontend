@@ -27,7 +27,11 @@ const [pokemon, setPokemon] = useState([]);
 // fetching data //
 
 useEffect( () => {
-  fetch("http://localhost:8080/pokemon?page=1&limit=6")
+
+  
+
+  fetch("http://localhost:8080/pokemon?page=2&limit=30")
+
       .then((res) => res.json())
       .then((data) => setPokemon(data))
       .catch((error) => console.log('no Pokemons want to fight today!'))

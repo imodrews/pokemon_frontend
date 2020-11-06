@@ -4,6 +4,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from "@material-ui/core/Typography";
 
 
+
+
+
 const About = () => {
 const [pics, setPics] = useState([]);
 
@@ -30,6 +33,7 @@ useEffect( () => {
 
 
 
+
 return(
 
     <>
@@ -43,10 +47,10 @@ return(
             />
                 <CardContent>
                     <Typography variant="headline" component="h3">
-                        our names
+                     Our names here
                     </Typography>
                     <Typography>
-                        add some stuff about ussss
+                        we can add a something about us here
                     </Typography>
                 </CardContent>
               
