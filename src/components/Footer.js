@@ -32,9 +32,9 @@ const handleChange = (event, newValue) =>{
 return (
 <>
     <BottomNavigation value={value} onChange={handleChange} className={classes.root} >   
-      <BottomNavigationAction label="Facebook" value="facebook" icon={<FacebookIcon />} />
-      <BottomNavigationAction label="Twitter" value="twitter" icon={<TwitterIcon />} />
-      <BottomNavigationAction label="Git Hub" value="github" icon={<GitHubIcon />} />
+      <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
+      <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+      <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
     </BottomNavigation>
 </>
 
