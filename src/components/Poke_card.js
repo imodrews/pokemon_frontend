@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { blue } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
+
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,12 +35,10 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
     backgroundColor: blue[500],
-  },
 }));
 
-const Poke_card = ({pokemon}) => {
+const Poke_card = ({ poke }) => {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -47,30 +48,22 @@ const Poke_card = ({pokemon}) => {
   };
 
   return (
+
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            B
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Bulbasaur"
-        subheader="type: Grass,Poison"
+        title={poke.name.english}
+        subheader={poke.type}
       />
       <CardMedia
         className={classes.media}
         image="/Images/"
-        title="Bulbasaur"
+        title={poke.name.english}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-        aka: Japanese - フシギダネ, Chinese - 妙蛙种子 French - Bulbizarre
+         Japanese: {poke.name.japanese} Chinese: {poke.name.chinese} French: {poke.name.french}
         </Typography>
+        
       </CardContent>
       <CardActions disableSpacing>
         <IconButton
@@ -88,16 +81,20 @@ const Poke_card = ({pokemon}) => {
         <CardContent>
           <Typography paragraph>Description</Typography>
           <Typography paragraph>
-                    base: HP - 45, 
-                    Attack - 49, 
-                    Defense -  49,
-                    Sp. Attack - 65,
-                    Sp. Defense - 65,
-                    Speed - 45
+
+                    Attack: {poke.base.Attack} 
+                    Defense: {poke.base.Defense} 
+                    Speed: {poke.base.Speed}
           </Typography>
+          <Link to={`/pokemon/${poke.id}/`}>
+            <Button>View Me!</Button>
+        </Link>
         </CardContent>
       </Collapse>
     </Card>
+
+
+
   );
 }
 

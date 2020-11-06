@@ -11,13 +11,13 @@ import Poke_cards from "../components/Poke_cards";
 
 const HomePage = ({pokemon}) => {
     
-    
+const lessPokemon = pokemon.slice(1,16);    
     
     
     return(
     <>
         <Jumbotron />
-        {pokemon &&  pokemon.map((poke)=> {
+        {pokemon &&  lessPokemon.map((poke)=> {
             return (
             <div key={poke.id}>
                 <p>{poke.name.english}</p>
