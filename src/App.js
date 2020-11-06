@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Jumbotron from "./components/Jumbotron";
 import NavBar from "./components/NavBar";
 import Poke_cards from "./components/Poke_cards";
-import Poke_card from "./components/Poke_card";
+import PokeDetail from "./Pages/PokeDetail";
 
 
 // pages //
@@ -27,7 +27,11 @@ const [pokemon, setPokemon] = useState([]);
 // fetching data //
 
 useEffect( () => {
+
+  
+
   fetch("http://localhost:8080/pokemon?page=2&limit=30")
+
       .then((res) => res.json())
       .then((data) => setPokemon(data))
       .catch((error) => console.log('no Pokemons want to fight today!'))
@@ -40,15 +44,27 @@ useEffect( () => {
         </header>
         <main> 
           <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route
+               <Route
                     path="/pokemon/:id"
                     render={(props) => (
-                       <Poke_card /> 
+                       <PokeDetail pokemon={pokemon}{...props} /> 
                     )}
                   />
+
+              <Route
+                    path="/pokemon"
+                    render={(props) => (
+                      <Poke_cards pokemon={pokemon}{...props} />
+                    )}
+              />    
+               <Route 
+                  path="/about"
+                  render={(props) => (
+                        <About />
+                  )} 
+              />
+
+           
                 <Route
                     exact
                     path="/"

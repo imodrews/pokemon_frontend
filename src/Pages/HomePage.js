@@ -10,15 +10,16 @@ import PokeButtons from "../components/PokeButtons";
 
 
 const HomePage = ({pokemon}) => {
-    const lessPokemon = pokemon.slice(0,16);
-    
+
     
     
     return(
     <>
         <Jumbotron />
-        <PokeButtons pokemon={lessPokemon}/>
+
+        <PokeButtons pokemon={pokemon}/>
         <Battlefield />
+
      </>
     );
 };
