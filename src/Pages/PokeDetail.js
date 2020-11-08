@@ -15,7 +15,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 345,
+     marginLeft: '35%',
+      maxWidth: 400,
+      margin: '5%',
+      textAlign: 'center',
+      
     },
     media: {
       height: 0,
@@ -35,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const PokeDetail = ({ pokemon }) => {
-    const { id } = useParams();
-
-    const lessPokemon = pokemon.slice(1,16);
+     const { id } = useParams();
 
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
@@ -46,14 +48,13 @@ const PokeDetail = ({ pokemon }) => {
       setExpanded(!expanded);
     };
 
-
 return (
      <div>
-          {pokemon.length >= 1 && 
-             lessPokemon
-                .filter((poke) => {
-                     return poke.id === id
-        })
+          {pokemon.length && 
+             pokemon
+                 .filter((poke) => {
+                     return poke.id === Number(id)
+          })
         .map((poke) => (
             <div>
               <Card className={classes.root}>
@@ -63,7 +64,7 @@ return (
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/Images/"
+                    image={`http://localhost:8080/assets/pokePic1s"`}
                     title={poke.name.english}
                 />
                 <CardContent>
@@ -92,6 +93,7 @@ return (
                                 Attack: {poke.base.Attack} 
                                 Defense: {poke.base.Defense} 
                                 Speed: {poke.base.Speed}
+                              
                     </Typography>
                     
                     </CardContent>
@@ -99,7 +101,9 @@ return (
                 </Card>
            </div>
           ))}
+       
        </div>
+     
         
      );
 }; 
