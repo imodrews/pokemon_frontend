@@ -64,7 +64,7 @@ return (
                 />
                 <CardMedia
                     className={classes.media}
-                    image={`http://localhost:8080/assets/pokePic1s"`}
+                    image={`http://localhost:8080/assets/pokePic2.jpg`}
                     title={poke.name.english}
                 />
                 <CardContent>
