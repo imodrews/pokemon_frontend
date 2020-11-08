@@ -16,7 +16,6 @@ const HomePage = ({pokemon}) => {
     return(
     <>
         <Jumbotron />
-
         <PokeButtons pokemon={pokemon}/>
         <Battlefield />
 

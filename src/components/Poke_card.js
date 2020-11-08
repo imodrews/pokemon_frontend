@@ -68,7 +68,7 @@ const Poke_card = ({ poke }) => {
       />
       <CardMedia
         className={classes.media}
-        image={`http://localhost:8080/assets/pokePic1`}
+        image={`http://localhost:8080/assets/pokePic2.jpg`}
         title={poke.name.english}
       />
       <CardContent>
