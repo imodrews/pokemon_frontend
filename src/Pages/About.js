@@ -1,68 +1,134 @@
-import React, { useEffect, useState } from "react";
-import { Card, CardActions, CardContent, Button } from "@material-ui/core";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from "@material-ui/core/Typography";
+import Typography from '@material-ui/core/Typography';
+/* import { FacebookIcon, TwitterIcon, GitHubIcon } from "@material-ui/icons"; */
+import { Box, BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+/*import image */ 
+import Pikachu from "../images/pikachu.jpg"
+import { FormatBold } from '@material-ui/icons';
+
+const useStyles = makeStyles({
+  text: {
+    marginTop: "3em",
+    marginBottom: "1em",
+    color: "#008393",
+    fontFamily: ("Raleway", "Helvetica Neue", "Helvetica"),
+  },
+  root: {
+    maxWidth: 345,
+    marginLeft: '2em',
+    marginTop: '3em',
+    marginBottom: '3em',
+    transition: '0.2s',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    }  
+  },
+  media: {
+    height: 140,
+  },
+  box1: {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    flexDirection: "column"
+    
+},
+  box2: {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    
+},
+});
 
 
+export default function MediaCard() {
+  const classes = useStyles();
 
-
-
-const About = () => {
-const [pics, setPics] = useState([]);
-
-
-useEffect( () => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=3")
-        .then((res) => res.json())
-        .then((data) => setPics(data.results))
-        .catch((error) => console.log('no Pokemons want to fight today!'))
-  }, []);
-
-  const styles = {
-    card: {
-      maxWidth: 200,
-      display: "flex",
-      justifyContent: "center",
-      alignContent: "center"
-    },
-    media: {
-      height: 15,
-      paddingTop: "56.25%" // 16:9
-    }
-  };
-
-
-
-
-return(
-
+  return (
     <>
-    {pics && pics.map((pic) =>{
-        return (
-    <div>
-         <Card raised={true}>
-            <CardMedia
-                    style={styles.media}
-                    image='https://i.pinimg.com/originals/ee/e7/5d/eee75d6e875e7e205a1394aaa96fad12.png'
-            />
-                <CardContent>
-                    <Typography variant="headline" component="h3">
-                     Our names here
-                    </Typography>
-                    <Typography>
-                        we can add a something about us here
-                    </Typography>
-                </CardContent>
-              
-         </Card>
-    </div>
-        )
-    })
-
-    }
+    <Typography className={classes.text} align="center" variant="h4" component="h4">
+            The Team
+    </Typography>
+    <Typography align="center" variant="h6" component="h6">
+            That created this awesome stuff
+    </Typography>
+    <Box className={classes.box2} m={5} display="flex" justifyContent="center">
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Pikachu}
+          title="Ellesia"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            PikaLesia
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Junior Web Developer
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <BottomNavigation className={classes.root} >   
+        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
+      </BottomNavigation>
+    </Card>
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Pikachu}
+          title="Imogen"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            PikaImo
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Junior Web Developer
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <BottomNavigation className={classes.root} >   
+        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
+      </BottomNavigation>
+    </Card>
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Pikachu}
+          title="rosmalina"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+          PikaLina
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           Junior Web Developer
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <BottomNavigation className={classes.root} >   
+        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+        <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
+      </BottomNavigation>
+    </Card>
+    </Box>
     </>
-
-    )
-};
-
-export default About;
+  );
+}
