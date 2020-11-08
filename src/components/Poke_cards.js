@@ -15,13 +15,15 @@ const useStyles = makeStyles((theme) => ({
       padding: `5%`,
       paddingBottom: `10%`,
       overflow: `hidden`,
+      backgroundColor: 'white',
+      
     }, 
   }));
   
 
 const Poke_cards = ({ pokemon }) => {
 
-const lessPokemon = pokemon.slice(1,16);
+
 
 const classes = useStyles();
 
@@ -30,7 +32,7 @@ const classes = useStyles();
         <CssBaseline />
         <Grid className={classes.root}>
             {pokemon.length >= 1 &&
-                lessPokemon.map((poke) => (
+               pokemon.map((poke) => (
                     <Poke_card poke={poke} key={poke.id} />
                 ))}
           <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
