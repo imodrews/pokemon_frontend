@@ -20,6 +20,14 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    textAlign: `center`,
+    marginBottom: `5%`,
+    outlineColor: `black`
+  },
+
+  cardHeader: {
+      fontWeight: `bold`,
+      color: `black`,
   },
   media: {
     height: 0,
@@ -35,7 +43,10 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-    backgroundColor: blue[500],
+    backgroundColor: `black`,
+  
+
+  
 }));
 
 const Poke_card = ({ poke }) => {
@@ -53,10 +64,11 @@ const Poke_card = ({ poke }) => {
       <CardHeader
         title={poke.name.english}
         subheader={poke.type}
+        className={classes.cardHeader}
       />
       <CardMedia
         className={classes.media}
-        image="/Images/"
+        image={`http://localhost:8080/assets/pokePic1`}
         title={poke.name.english}
       />
       <CardContent>
@@ -81,10 +93,10 @@ const Poke_card = ({ poke }) => {
         <CardContent>
           <Typography paragraph>Description</Typography>
           <Typography paragraph>
-
                     Attack: {poke.base.Attack} 
                     Defense: {poke.base.Defense} 
                     Speed: {poke.base.Speed}
+                    
           </Typography>
           <Link to={`/pokemon/${poke.id}/`}>
             <Button>View Me!</Button>
@@ -92,6 +104,7 @@ const Poke_card = ({ poke }) => {
         </CardContent>
       </Collapse>
     </Card>
+
 
 
 

@@ -11,13 +11,13 @@ import Footer from "./components/Footer";
 import Jumbotron from "./components/Jumbotron";
 import NavBar from "./components/NavBar";
 import Poke_cards from "./components/Poke_cards";
-import PokeDetail from "./Pages/PokeDetail";
 
 
 // pages //
 
 import HomePage from "./Pages/HomePage";
 import About from "./Pages/About";
+import PokeDetail from "./Pages/PokeDetail";
 
 const App = () => {
 
