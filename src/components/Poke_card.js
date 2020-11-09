@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -53,24 +53,36 @@ const Poke_card = ({ poke }) => {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [image, setImage] = useState([])
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+    .then(res => res.json())
+    .then(data => console.log(data.sprites))
+    .catch(err => console.log(err))
+  }, [])
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+/*  {pokePics && pokePics.map((poke) => { return ( <img src={poke.sprites.back_default} alt={poke.name} />     )})}*/
 
   return (
-
+      
     <Card className={classes.root}>
       <CardHeader
         title={poke.name.english}
         subheader={poke.type}
         className={classes.cardHeader}
       />
+        {image && image.map((i, index) => (
       <CardMedia
+        key={index}
         className={classes.media}
-        image={`http://localhost:8080/assets/pokePic2.jpg`}
-        title={poke.name.english}
+        image={i.back_default} 
       />
+      ))}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
          Japanese: {poke.name.japanese} Chinese: {poke.name.chinese} French: {poke.name.french}
@@ -105,10 +117,9 @@ const Poke_card = ({ poke }) => {
       </Collapse>
     </Card>
 
-
-
-
-  );
+      
+    
+  )
 }
 
 export default Poke_card;
