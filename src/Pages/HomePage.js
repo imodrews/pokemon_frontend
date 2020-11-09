@@ -6,7 +6,7 @@ import Battlefield from "../components/Battlefield";
 import Jumbotron from "../components/Jumbotron";
 import Poke_cards from "../components/Poke_cards";
 import PokeButtons from "../components/PokeButtons";
-
+import PokeImage from "../components/PokeImage"
 
 
 const HomePage = ({pokemon}) => {
@@ -17,7 +17,7 @@ const HomePage = ({pokemon}) => {
     <>
         <Jumbotron />
         <PokeButtons pokemon={pokemon}/>
-        <Battlefield />
+        <PokeImage />
 
      </>
     );
