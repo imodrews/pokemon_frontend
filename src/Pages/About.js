@@ -13,13 +13,27 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 /*import image */ 
 import Pikachu from "../images/pikachu.jpg"
 import { FormatBold } from '@material-ui/icons';
+import Grid from '@material-ui/core/Grid';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 const useStyles = makeStyles({
   text: {
+    
     marginTop: "3em",
     marginBottom: "1em",
     color: "#008393",
     fontFamily: ("Raleway", "Helvetica Neue", "Helvetica"),
+  },
+  gridEdit: {
+    display: `flex`,
+      flexWrap: `wrap`,
+      justifyContent: `space-between`,
+      alignContent: `space-around`,
+      padding: `5%`,
+      paddingBottom: `10%`,
+      overflow: `hidden`,
+      backgroundColor: 'white',
   },
   root: {
     maxWidth: 345,
@@ -29,7 +43,7 @@ const useStyles = makeStyles({
     transition: '0.2s',
     '&:hover': {
       transform: 'scale(1.1)',
-    }  
+    } 
   },
   media: {
     height: 140,
@@ -55,12 +69,15 @@ export default function MediaCard() {
 
   return (
     <>
+  
     <Typography className={classes.text} align="center" variant="h4" component="h4">
             The Team
     </Typography>
     <Typography align="center" variant="h6" component="h6">
             That created this awesome stuff
     </Typography>
+    <CssBaseline />
+    <Grid className={classes.gridEdit}>
     <Box className={classes.box2} m={5} display="flex" justifyContent="center">
     <Card className={classes.root}>
       <CardActionArea>
@@ -129,6 +146,7 @@ export default function MediaCard() {
       </BottomNavigation>
     </Card>
     </Box>
+    </Grid>
     </>
   );
 }
