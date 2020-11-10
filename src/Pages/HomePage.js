@@ -18,6 +18,7 @@ const HomePage = ({pokemon}) => {
         <Jumbotron />
         <PokeButtons pokemon={pokemon}/>
         <PokeImage />
+        <Battlefield />
 
      </>
     );

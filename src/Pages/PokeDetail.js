@@ -64,7 +64,7 @@ return (
                 />
                 <CardMedia
                     className={classes.media}
-                    image={`http://localhost:8080/assets/pokePic2.jpg`}
+                    image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`}
                     title={poke.name.english}
                 />
                 <CardContent>
