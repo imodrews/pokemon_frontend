@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
       color: `black`,
   },
   media: {
+    width: '70%',
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
@@ -76,13 +77,12 @@ const Poke_card = ({ poke }) => {
         subheader={poke.type}
         className={classes.cardHeader}
       />
-        {image && image.map((i, index) => (
+        
       <CardMedia
-        key={index}
         className={classes.media}
-        image={i.back_default} 
+        image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`}
       />
-      ))}
+      
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
          Japanese: {poke.name.japanese} Chinese: {poke.name.chinese} French: {poke.name.french}

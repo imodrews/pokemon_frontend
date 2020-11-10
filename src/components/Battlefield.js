@@ -1,6 +1,10 @@
 import React from "react";
+import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
+
+
+
 
 
 const useStyles = makeStyles({
@@ -22,19 +26,31 @@ const useStyles = makeStyles({
 
 })
 
+const dropped = (e) => {
+    // e.containerElem.style.visibility="hidden"
+    console.log("I'm here!")
+}
+
+const onDragOver = (e) => {
+    e.preventDefault()
+}
 
 
 
-const Battlefield = ()=> {
+const Battlefield = (poke)=> {
 const classes = useStyles();
+
 
 return(
 <>
+<DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
     <Box className={classes.hero}>
-        <Box>
+    
+        <Box onDragOver={(e) => onDragOver(e)}>
             THIS IS THE BATTLEFIELD
         </Box>
     </Box>
+ </DropTarget>
 </>
     )
 }
