@@ -9,16 +9,16 @@ import PokeButtons from "../components/PokeButtons";
 import PokeImage from "../components/PokeImage"
 
 
-const HomePage = ({pokemon}) => {
+const HomePage = ({pokemon, pokeMove}) => {
 
     
     
     return(
     <>
         <Jumbotron />
-        <PokeButtons pokemon={pokemon}/>
+        <PokeButtons pokemon={pokemon} pokeMove={pokeMove}/>
         <PokeImage />
-        <Battlefield />
+        <Battlefield pokemon={pokemon} pokeMove={pokeMove}/>
 
      </>
     );

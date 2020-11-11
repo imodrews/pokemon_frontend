@@ -30,16 +30,18 @@ const useStyles = makeStyles(theme => ({
 
 
 
-const PokeButtons = ( { pokemon }) => {
+const PokeButtons = ( { pokemon , pokeMove }) => {
     const classes = useStyles();
     
 
 
 
     const pokeDrop = (e) => {
-       console.log("I work!")
-    }
+      
+      pokeMove(e.dragData)
+      // console.log(e.dragData)
 
+    }
 
     // const handleClick = () => {
     //     fetch(`https://pokeapi.co/api/v2/pokemon/${poke.id}`)
@@ -57,7 +59,7 @@ return (
         
         <div key={poke.div} className={classes.box}>
           
-          <DragDropContainer targetKey="foo" dragData={poke} onDrop={pokeDrop} >
+          <DragDropContainer targetKey="foo" dragData={poke} onDrop={(e) => pokeDrop(e)} >
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`} draggable />
           </DragDropContainer>
           <Link to={`/pokemon/${poke.id}/`}>

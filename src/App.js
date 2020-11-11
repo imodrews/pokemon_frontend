@@ -23,6 +23,7 @@ const App = () => {
 
 // states //
 const [pokemon, setPokemon] = useState([]);
+const [newPoke, setNewPoke] = useState([]);
 
 // fetching data //
 
@@ -36,6 +37,17 @@ useEffect( () => {
       .then((data) => setPokemon(data))
       .catch((error) => console.log('no Pokemons want to fight today!'))
 }, []);
+
+const pokeMove = (poke) => {
+  console.log(poke)
+  const filteredPokemon = pokemon.filter(p => {
+    return p.id !== poke.id 
+  })
+  setPokemon(filteredPokemon)
+  console.log(pokemon)
+}
+
+
 
   return (
  <div className="App">
@@ -69,7 +81,7 @@ useEffect( () => {
                     exact
                     path="/"
                     render={(props) => (
-                        <HomePage pokemon={pokemon}{...props} />
+                        <HomePage pokemon={pokemon} pokeMove={pokeMove} {...props} />
                     )}
                     />
           </Switch>
