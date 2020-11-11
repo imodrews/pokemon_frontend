@@ -42,7 +42,7 @@ function determineWinner(player1, player2) {
     }
 }
 
-const playGame = () => {
+const PlayGame = () => {
 let player1 = getPlayer1();
 let player2 = getPlayer2();
 console.log ('You threw: ' + userChoice);
@@ -51,4 +51,6 @@ console.log('The computer threw: ' + computerChoice);
 console.log(determineWinner(player1, player));
 };
 
-playGame();
+// playGame();
+
+export default PlayGame;

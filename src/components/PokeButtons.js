@@ -24,6 +24,10 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#040405",
         flexWrap: "wrap",
         display: "flex",
+        textDecoration: "none"
+    },
+    link: {
+        textDecoration: "none"
     }
   }));
 
@@ -60,9 +64,9 @@ return (
         <div key={poke.div} className={classes.box}>
           
           <DragDropContainer targetKey="foo" dragData={poke} onDrop={(e) => pokeDrop(e)} >
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`} draggable />
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`} draggable/>
           </DragDropContainer>
-          <Link to={`/pokemon/${poke.id}/`}>
+          <Link to={`/pokemon/${poke.id}/`} className={classes.link}>
             <Button variant="contained" className={classes.button} dragabble>
                 {poke.name.english}
              </Button>

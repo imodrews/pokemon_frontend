@@ -3,6 +3,10 @@ import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 
+//import components
+import Player from "./Player";
+import GameButtons from "./GameButtons";
+
 
 
 
@@ -40,6 +44,7 @@ const classes = useStyles();
 
 
 
+
 const dropped = (e) => {
     e.containerElem.style.visibility="hidden"
     // setSelectedPoke(pokemon)
@@ -53,12 +58,13 @@ return(
 <>
 <DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
     <Box className={classes.hero}>
-    
+        BATTLEFIELD
         <Box onDragOver={(e) => onDragOver(e)}>
-            THIS IS THE BATTLEFIELD
+            
            {selectedPoke.length > 0 && selectedPoke
-           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`}/>)}
+           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}}/>)}
         </Box>
+        <GameButtons />
     </Box>
  </DropTarget>
 </>
