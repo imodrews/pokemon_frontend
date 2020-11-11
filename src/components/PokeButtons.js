@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import { Box } from '@material-ui/core';
@@ -33,12 +34,19 @@ const PokeButtons = ( { pokemon }) => {
     const classes = useStyles();
     
 
-   /* const handleClick = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${poke.id}`)
-            .then((res) => res.json())
-            .then((data) => setPokePics(data.results))
-            .catch((error) => console.log('no Poke pics for you'))
-      }  {pokePics && pokePics.map((poke) => { return ( <img src={poke.sprites.back_default} alt={poke.name} />     )})}*/
+
+
+    const pokeDrop = (e) => {
+       console.log("I work!")
+    }
+
+
+    // const handleClick = () => {
+    //     fetch(`https://pokeapi.co/api/v2/pokemon/${poke.id}`)
+    //         .then((res) => res.json())
+    //         .then((data) => setPokePics(data.results))
+    //         .catch((error) => console.log('no Poke pics for you'))
+    //   }  {pokePics && pokePics.map((poke) => { return ( <img src={poke.sprites.back_default} alt={poke.name} />     )})}*/
 
 
 return (
@@ -48,8 +56,12 @@ return (
         return(
         
         <div key={poke.div} className={classes.box}>
+          
+          <DragDropContainer targetKey="foo" dragData={poke} onDrop={pokeDrop} >
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`} draggable />
+          </DragDropContainer>
           <Link to={`/pokemon/${poke.id}/`}>
-            <Button variant="contained" className={classes.button} >
+            <Button variant="contained" className={classes.button} dragabble>
                 {poke.name.english}
              </Button>
           </Link>
