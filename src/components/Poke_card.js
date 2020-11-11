@@ -54,20 +54,20 @@ const Poke_card = ({ poke }) => {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [image, setImage] = useState([])
+  // const [image, setImage] = useState([])
 
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-    .then(res => res.json())
-    .then(data => console.log(data.sprites))
-    .catch(err => console.log(err))
-  }, [])
+  // useEffect(() => {
+  //   fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+  //   .then(res => res.json())
+  //   .then(data => console.log(data.sprites))
+  //   .catch(err => console.log(err))
+  // }, [])
 
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-/*  {pokePics && pokePics.map((poke) => { return ( <img src={poke.sprites.back_default} alt={poke.name} />     )})}*/
+
 
   return (
       

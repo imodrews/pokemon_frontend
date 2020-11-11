@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
@@ -26,10 +26,7 @@ const useStyles = makeStyles({
 
 })
 
-const dropped = (e) => {
-    // e.containerElem.style.visibility="hidden"
-    console.log("I'm here!")
-}
+
 
 const onDragOver = (e) => {
     e.preventDefault()
@@ -37,9 +34,20 @@ const onDragOver = (e) => {
 
 
 
-const Battlefield = (poke)=> {
+const Battlefield = ({poke, pokemon, pokeMove})=> {
+const [selectedPoke, setSelectedPoke] = useState([]);
 const classes = useStyles();
 
+
+
+const dropped = (e) => {
+    e.containerElem.style.visibility="hidden"
+    // setSelectedPoke(pokemon)
+  
+    setSelectedPoke([ ...selectedPoke, e.dragData])
+    e.preventDefault()
+    console.log(selectedPoke)
+}
 
 return(
 <>
@@ -48,6 +56,8 @@ return(
     
         <Box onDragOver={(e) => onDragOver(e)}>
             THIS IS THE BATTLEFIELD
+           {selectedPoke.length > 0 && selectedPoke
+           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`}/>)}
         </Box>
     </Box>
  </DropTarget>
