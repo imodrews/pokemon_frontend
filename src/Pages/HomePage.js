@@ -6,7 +6,8 @@ import Battlefield from "../components/Battlefield";
 import Jumbotron from "../components/Jumbotron";
 import Poke_cards from "../components/Poke_cards";
 import PokeButtons from "../components/PokeButtons";
-import PokeImage from "../components/PokeImage"
+import PokeImage from "../components/PokeImage";
+import Instructions from "../components/Instructions";
 
 
 const HomePage = ({pokemon, pokeMove}) => {
@@ -17,9 +18,8 @@ const HomePage = ({pokemon, pokeMove}) => {
     <>
         <Jumbotron />
         <PokeButtons pokemon={pokemon} pokeMove={pokeMove}/>
-        <PokeImage />
+        <Instructions />
         <Battlefield pokemon={pokemon} pokeMove={pokeMove}/>
-
      </>
     );
 };
