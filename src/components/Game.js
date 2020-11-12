@@ -51,6 +51,6 @@ console.log('The computer threw: ' + computerChoice);
 console.log(determineWinner(player1, player));
 };
 
-// playGame();
+PlayGame();
 
-export default PlayGame;
+/* export default PlayGame; */

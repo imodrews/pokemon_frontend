@@ -8,7 +8,7 @@ import Poke_cards from "../components/Poke_cards";
 import PokeButtons from "../components/PokeButtons";
 import PokeImage from "../components/PokeImage";
 import Instructions from "../components/Instructions";
-
+import Rock from "../components/Rock";
 
 const HomePage = ({pokemon, pokeMove}) => {
 
@@ -20,6 +20,7 @@ const HomePage = ({pokemon, pokeMove}) => {
         <PokeButtons pokemon={pokemon} pokeMove={pokeMove}/>
         <Instructions />
         <Battlefield pokemon={pokemon} pokeMove={pokeMove}/>
+        <Rock />
      </>
     );
 };

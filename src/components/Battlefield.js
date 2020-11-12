@@ -64,7 +64,7 @@ return(
            {selectedPoke.length > 0 && selectedPoke
            .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}}/>)}
         </Box>
-        <GameButtons />
+        {/* <GameButtons /> */}
     </Box>
  </DropTarget>
 </>
