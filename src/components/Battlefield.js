@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-
-
-
+import './styles.css'
+import Player from '../components/Player'
 
 
 const useStyles = makeStyles({
@@ -22,45 +20,69 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         fontStyle: "italic",
         paddingBottom: "50px"
+    },
+    player: {
+        display: "flex",
+        flexDirection: "column"
     }
 
 })
 
 
 
-const onDragOver = (e) => {
-    e.preventDefault()
-}
+const weapons = ["rock", "paper", "scissors"];
 
-
-
-const Battlefield = ({poke, pokemon, pokeMove})=> {
-const [selectedPoke, setSelectedPoke] = useState([]);
+const Battlefield = ()=> {
 const classes = useStyles();
+const [playerOne, setPlayerOne] = useState()
+const [playerTwo, setPlayerTwo] = useState()
+const [winner, setWinner] = useState(null)
 
+    const startGame = () => {
+        let counter = 0;
+        let gameInterval = setInterval(() => {
+            counter++;
+        setPlayerOne(weapons[Math.floor(Math.random() * weapons.length)])
+        setPlayerTwo(weapons[Math.floor(Math.random() * weapons.length)])
+        setWinner("");
+        if (counter > 5) {
+            clearInterval(gameInterval);
+            setWinner({winner: selectWinner()})
+            }
+          })
+    }
 
-
-const dropped = (e) => {
-    e.containerElem.style.visibility="hidden"
-    // setSelectedPoke(pokemon)
-  
-    setSelectedPoke([ ...selectedPoke, e.dragData])
-    e.preventDefault()
-    console.log(selectedPoke)
-}
-
+    
+    const selectWinner = () => {    
+        if (playerOne === playerTwo) {
+          return "Oops it's a Tie!";
+        } else if (
+          (playerOne === "rock" && playerTwo === "scissors") ||
+          (playerOne === "scissors" && playerTwo === "paper") ||
+          (playerOne === "paper" && playerTwo === "rock")
+        ) {
+          return "Player One Wins!";
+        } else {
+          return "Player Two Wins!";
+        }
+      };
+    
 return(
 <>
-<DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
     <Box className={classes.hero}>
-    
-        <Box onDragOver={(e) => onDragOver(e)}>
+        <Box className={classes.player}>
             THIS IS THE BATTLEFIELD
-           {selectedPoke.length > 0 && selectedPoke
-           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`}/>)}
+                
+                <Player weapon={playerOne}/>
+                
+                
+                <Player weapon={playerTwo} />
+                <div className="winner"> {winner ? selectWinner() : null}</div>
+                <button className="playButton" type="button" onClick={startGame}> Start! </button> 
+
+                           
         </Box>
     </Box>
- </DropTarget>
 </>
     )
 }
