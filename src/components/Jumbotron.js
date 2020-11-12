@@ -49,6 +49,6 @@ return(
         </Box>
     </Box>
 </>
-    )}
+)}
 
 export default Jumbotron;

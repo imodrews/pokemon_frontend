@@ -55,9 +55,6 @@ return(
          </Container>
         </Toolbar>
     </AppBar>
+)}
 
-
-    )}
-// can take out maxWidth="md" to change how the icons line up
-//<AppBar style={{ background: '#2E3B55' }}>
 export default NavBar;

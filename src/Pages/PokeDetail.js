@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-     marginLeft: '35%',
+      marginLeft: '35%',
       maxWidth: 400,
       margin: '5%',
       textAlign: 'center',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const PokeDetail = ({ pokemon }) => {
-     const { id } = useParams();
+    const { id } = useParams();
 
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
@@ -101,11 +101,8 @@ return (
                 </Card>
            </div>
           ))}
-       
        </div>
-     
-        
-     );
+    );
 }; 
 
 export default PokeDetail;

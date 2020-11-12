@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
+import React from "react";
+import { DragDropContainer } from 'react-drag-drop-container';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import { Box } from '@material-ui/core';
@@ -24,6 +24,10 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#040405",
         flexWrap: "wrap",
         display: "flex",
+        textDecoration: "none"
+    },
+    link: {
+        textDecoration: "none"
     }
   }));
 
@@ -37,10 +41,7 @@ const PokeButtons = ( { pokemon , pokeMove }) => {
 
 
     const pokeDrop = (e) => {
-      
       pokeMove(e.dragData)
-      // console.log(e.dragData)
-
     }
 
     // const handleClick = () => {
@@ -58,16 +59,14 @@ return (
         return(
         
         <div key={poke.div} className={classes.box}>
-          
           <DragDropContainer targetKey="foo" dragData={poke} onDrop={(e) => pokeDrop(e)} >
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${poke.id}.png`} draggable />
           </DragDropContainer>
-          <Link to={`/pokemon/${poke.id}/`}>
+          <Link to={`/pokemon/${poke.id}/`} className={classes.link}>
             <Button variant="contained" className={classes.button} dragabble>
                 {poke.name.english}
              </Button>
-          </Link>
-            
+          </Link> 
         </div>
         
         )

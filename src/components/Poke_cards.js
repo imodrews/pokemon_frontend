@@ -32,7 +32,7 @@ const classes = useStyles();
         <CssBaseline />
         <Grid className={classes.root}>
             {pokemon.length >= 1 &&
-               pokemon.map((poke) => (
+              pokemon.map((poke) => (
                     <Poke_card poke={poke} key={poke.id} />
                 ))}
           <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />

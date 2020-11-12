@@ -6,9 +6,7 @@ import { Switch, Route } from "react-router-dom";
 
 // import components //
 
-import Battlefield from "./components/Battlefield";
 import Footer from "./components/Footer";
-import Jumbotron from "./components/Jumbotron";
 import NavBar from "./components/NavBar";
 import Poke_cards from "./components/Poke_cards";
 
