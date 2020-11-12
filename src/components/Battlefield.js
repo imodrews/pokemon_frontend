@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
+import { DropTarget } from 'react-drag-drop-container';
 import './styles.css'
 import Player from '../components/Player'
 
@@ -32,11 +33,21 @@ const useStyles = makeStyles({
 
 const weapons = ["rock", "paper", "scissors"];
 
-const Battlefield = ()=> {
+const Battlefield = ({poke, pokemon, pokeMove})=> {
 const classes = useStyles();
 const [playerOne, setPlayerOne] = useState()
 const [playerTwo, setPlayerTwo] = useState()
+const [selectedPoke, setSelectedPoke] = useState([]);
 const [winner, setWinner] = useState(null)
+
+const dropped = (e) => {
+    e.containerElem.style.visibility="hidden"
+    // setSelectedPoke(pokemon)
+  
+    setSelectedPoke([ ...selectedPoke, e.dragData])
+    e.preventDefault()
+    console.log(selectedPoke)
+}
 
     const startGame = () => {
         let counter = 0;
@@ -69,20 +80,20 @@ const [winner, setWinner] = useState(null)
     
 return(
 <>
+<DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
     <Box className={classes.hero}>
         <Box className={classes.player}>
             THIS IS THE BATTLEFIELD
                 
                 <Player weapon={playerOne}/>
-                
-                
                 <Player weapon={playerTwo} />
                 <div className="winner"> {winner ? selectWinner() : null}</div>
-                <button className="playButton" type="button" onClick={startGame}> Start! </button> 
-
-                           
+                <button className="playButton" type="button" onClick={startGame}> Start! </button>              
+                {selectedPoke.length > 0 && selectedPoke
+           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}}/>)}
         </Box>
     </Box>
+</DropTarget>
 </>
     )
 }
