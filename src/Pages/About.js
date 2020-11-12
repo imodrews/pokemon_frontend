@@ -5,14 +5,12 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-/* import { FacebookIcon, TwitterIcon, GitHubIcon } from "@material-ui/icons"; */
 import { Box, BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 /*import image */ 
 import Pikachu from "../images/pikachu.jpg"
-import { FormatBold } from '@material-ui/icons';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -149,4 +147,4 @@ export default function MediaCard() {
     </Grid>
     </>
   );
-}
+};

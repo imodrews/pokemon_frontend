@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -7,12 +7,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 
 import { Link } from "react-router-dom";
@@ -54,15 +51,6 @@ const Poke_card = ({ poke }) => {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  // const [image, setImage] = useState([])
-
-  // useEffect(() => {
-  //   fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-  //   .then(res => res.json())
-  //   .then(data => console.log(data.sprites))
-  //   .catch(err => console.log(err))
-  // }, [])
-
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -116,9 +104,6 @@ const Poke_card = ({ poke }) => {
         </CardContent>
       </Collapse>
     </Card>
-
-      
-    
   )
 }
 
