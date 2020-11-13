@@ -5,7 +5,6 @@ import { DropTarget } from 'react-drag-drop-container';
 import './styles.css'
 import Player from '../components/Player'
 
-
 const useStyles = makeStyles({
     hero: {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517547196086-e63b7ae6afb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80')`,
@@ -13,8 +12,8 @@ const useStyles = makeStyles({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        position: "relative",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         color: "#fff",
@@ -22,9 +21,14 @@ const useStyles = makeStyles({
         fontStyle: "italic",
         paddingBottom: "50px"
     },
-    player: {
+    wrapper: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "row", 
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    pokemon: {
+        minWidth: "300px"
     }
 
 })
@@ -79,21 +83,32 @@ const dropped = (e) => {
       };
     
 return(
-<>
+<>  
 <DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
+
     <Box className={classes.hero}>
-        <Box className={classes.player}>
-            THIS IS THE BATTLEFIELD
-                
-                <Player weapon={playerOne}/>
-                <Player weapon={playerTwo} />
-                <div className="winner"> {winner ? selectWinner() : null}</div>
-                <button className="playButton" type="button" onClick={startGame}> Start! </button>              
-                {selectedPoke.length > 0 && selectedPoke
-           .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}}/>)}
-        </Box>
+        THIS IS THE BATTLEFIELD
+        <Box className={classes.wrapper}>
+            <Box className={classes.playerOne}>
+            <Player weapon={playerOne}/>
+            Player One
+            </Box>
+            <Box className={classes.pokemon}>
+            {selectedPoke.length > 0 && selectedPoke
+        .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}} alt="pokemon"/>)}
+            </Box>
+            <Box className={classes.playerTwo}>
+            <Player weapon={playerTwo} />
+            Player Two
+            </Box>
     </Box>
-</DropTarget>
+            <div className="winner"> {winner ? selectWinner() : null}</div>
+           
+            <button className="playButton" type="button" onClick={startGame}> Start! </button>              
+  
+    </Box>
+    </DropTarget>
+
 </>
     )
 }

@@ -22,6 +22,10 @@ const useStyles = makeStyles({
         color: "#fff",
         fontSize: "2rem",
         fontStyle: "italic"
+    },
+    text: {
+        marginLeft: "1em",
+        marginRight: "1em"
     }
 
 })
@@ -44,7 +48,7 @@ return(
 <>
     <StaticBanner className={classes.banner} />
     <Box className={classes.hero}>
-        <Box>
+        <Box className={classes.text}>
             You cannot expect to win every single battle, but love is worth fighting for and if you are brave and courageous and never quit you can come out a winner, just like me. -Ash Ketchum
         </Box>
     </Box>

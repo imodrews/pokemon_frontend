@@ -17,9 +17,9 @@ const HomePage = ({pokemon, pokeMove}) => {
     return(
     <>
         <Jumbotron />
+        <Instructions />
         <PokeButtons pokemon={pokemon} pokeMove={pokeMove}/>
         <Battlefield pokemon={pokemon} pokeMove={pokeMove}/>
-        <Instructions />
      </>
     );
 };
