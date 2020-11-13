@@ -67,6 +67,9 @@ const dropped = (e) => {
           })
     }
 
+    const reset = () =>{
+        setSelectedPoke([])
+    }
     
     const selectWinner = () => {    
         if (playerOne === playerTwo) {
@@ -105,7 +108,7 @@ return(
             <div className="winner"> {winner ? selectWinner() : null}</div>
            
             <button className="playButton" type="button" onClick={startGame}> Start! </button>              
-  
+            <button className="playButton" type="button" onClick={reset}> Reset your Poke Fighters </button> 
     </Box>
     </DropTarget>
 
