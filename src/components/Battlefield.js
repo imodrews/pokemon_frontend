@@ -91,7 +91,7 @@ return(
         <Box className={classes.wrapper}>
             <Box className={classes.playerOne}>
             <Player weapon={playerOne}/>
-            Player One
+            Player One: {selectedPoke.length > 0 && selectedPoke[0].name.english}
             </Box>
             <Box className={classes.pokemon}>
             {selectedPoke.length > 0 && selectedPoke
@@ -99,7 +99,7 @@ return(
             </Box>
             <Box className={classes.playerTwo}>
             <Player weapon={playerTwo} />
-            Player Two
+            Player Two: {selectedPoke.length > 1 && selectedPoke[1].name.english}
             </Box>
     </Box>
             <div className="winner"> {winner ? selectWinner() : null}</div>

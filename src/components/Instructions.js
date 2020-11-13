@@ -26,7 +26,7 @@ const Instructions = () =>{
             <>
                 <Box className={classes.box}>
                     <h2>Poke Rock Paper Scissors Challenge</h2>
-                    <p>Drag and drop your poke fighter of choice into the Battlefield! Once you and your poke are ready to fight just click on your choice of rock, paper or scissors, and compete against the other pokemon!</p>
+                    <p>Drag and drop TWO poke fighters of choice into the Battlefield! Once you and your poke are ready to play Rock, Paper, Scissors just click on play and watch the pokemon fight each other!!</p>
                 </Box>
             </>
         );
