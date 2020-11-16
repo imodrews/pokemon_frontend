@@ -1,27 +1,39 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+/*import the material UI components*/
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Box, BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+
+/*import the icons*/
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+
 /*import image */ 
 import Pikachu from "../images/pikachu.jpg"
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Goldman',
+      'cursive',
+    ].join(','),
+  }
+})
 
 const useStyles = makeStyles({
-  text: {
-    
+  text: { 
     marginTop: "3em",
     marginBottom: "1em",
     color: "#008393",
-    fontFamily: ("Raleway", "Helvetica Neue", "Helvetica"),
   },
   gridEdit: {
     display: `flex`,
@@ -31,7 +43,7 @@ const useStyles = makeStyles({
       padding: `5%`,
       paddingBottom: `10%`,
       overflow: `hidden`,
-      backgroundColor: 'white',
+      //backgroundColor: 'white',
   },
   root: {
     maxWidth: 345,
@@ -56,8 +68,7 @@ const useStyles = makeStyles({
   box2: {
     display: "flex",
     justifyContent: "center",
-    alignContent: "center",
-    
+    alignContent: "center",  
 },
 });
 
@@ -67,13 +78,14 @@ export default function MediaCard() {
 
   return (
     <>
-  
-    <Typography className={classes.text} align="center" variant="h4" component="h4">
+    <ThemeProvider theme={theme}>
+    <Typography className={classes.text} align="center" variant="h3" component="h3">
             The Team
     </Typography>
-    <Typography align="center" variant="h6" component="h6">
+    <Typography align="center" variant="h4" component="h4">
             That created this awesome stuff
     </Typography>
+    </ThemeProvider>
     <CssBaseline />
     <Grid className={classes.gridEdit}>
     <Box className={classes.box2} m={5} display="flex" justifyContent="center">
