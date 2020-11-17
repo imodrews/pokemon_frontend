@@ -4,7 +4,19 @@ import { Box } from '@material-ui/core';
 import { DropTarget } from 'react-drag-drop-container';
 import './styles.css'
 import Player from '../components/Player'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Button from "@material-ui/core/Button";
 
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Goldman',
+      'cursive',
+    ].join(','),
+  }
+})
 const useStyles = makeStyles({
     hero: {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517547196086-e63b7ae6afb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80')`,
@@ -29,6 +41,9 @@ const useStyles = makeStyles({
     },
     pokemon: {
         minWidth: "300px"
+    },
+    iconText: {
+        color: "white",
     }
 
 })
@@ -88,29 +103,40 @@ const dropped = (e) => {
 return(
 <>  
 <DropTarget targetKey="foo" dropData={poke} onHit={dropped}>
-
+<ThemeProvider theme={theme}>
     <Box className={classes.hero}>
-        THIS IS THE BATTLEFIELD
+      <Typography variant="h4" component="h4">
+      THIS IS THE BATTLEFIELD
+      </Typography>
         <Box className={classes.wrapper}>
-            <Box className={classes.playerOne}>
-            <Player weapon={playerOne}/>
-            Player One: {selectedPoke.length > 0 && selectedPoke[0].name.english}
-            </Box>
-            <Box className={classes.pokemon}>
+          <Box className={classes.playerOne}>
+            <Typography variant="h6" component="h6">
+              <Player weapon={playerOne}/>
+              Player One: {selectedPoke.length > 0 && selectedPoke[0].name.english}
+            </Typography>
+          </Box>
+          <Box className={classes.pokemon}>
             {selectedPoke.length > 0 && selectedPoke
-        .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}} alt="pokemon"/>)}
-            </Box>
-            <Box className={classes.playerTwo}>
-            <Player weapon={playerTwo} />
-            Player Two: {selectedPoke.length > 1 && selectedPoke[1].name.english}
-            </Box>
+            .map(p =>   <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`} style={{width:150}} alt="pokemon"/>)}
+          </Box>
+          <Box className={classes.playerTwo}>
+            <Typography variant="h6" component="h6">
+              <Player weapon={playerTwo} />
+              Player Two: {selectedPoke.length > 1 && selectedPoke[1].name.english}
+            </Typography>
+          </Box>
+        </Box>
+          <div className="winner"> {winner ? selectWinner() : null}</div>  
+          <Button variant="contained" color="secondary" onClick={startGame}> Play! </Button>              
+          <br/>
+          <Button variant="contained" color="primary" onClick={reset}> Reset Game</Button> 
+          <br/>
+          <Typography className={classes.iconText} variant="body2" component="body2">
+          Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+          </Typography>
     </Box>
-            <div className="winner"> {winner ? selectWinner() : null}</div>
-           
-            <button className="playButton" type="button" onClick={startGame}> Start! </button>              
-            <button className="playButton" type="button" onClick={reset}> Reset your Poke Fighters </button> 
-    </Box>
-    </DropTarget>
+</ThemeProvider>
+</DropTarget>
 
 </>
     )

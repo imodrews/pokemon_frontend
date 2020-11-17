@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 
 // router //
 
@@ -21,7 +23,6 @@ const App = () => {
 
 // states //
 const [pokemon, setPokemon] = useState([]);
-const [newPoke, setNewPoke] = useState([]);
 
 // fetching data //
 
@@ -45,12 +46,21 @@ const pokeMove = (poke) => {
   console.log(pokemon)
 }
 
-
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Goldman',
+      'cursive',
+    ].join(','),
+  }
+})
 
   return (
  <div className="App">
        <header>
+       <ThemeProvider theme={theme}>
            <NavBar />
+        </ThemeProvider>
         </header>
         <main> 
           <Switch>
