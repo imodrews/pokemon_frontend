@@ -19,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     textAlign: `center`,
     marginBottom: `5%`,
-    outlineColor: `black`
+    outlineColor: `black`,
+    transition: '0.2s',
+    '&:hover': {
+      transform: 'scale(1.1)'
+    }
   },
 
   cardHeader: {
@@ -93,8 +97,10 @@ const Poke_card = ({ poke }) => {
         <CardContent>
           <Typography paragraph>Description</Typography>
           <Typography paragraph>
-                    Attack: {poke.base.Attack} 
-                    Defense: {poke.base.Defense} 
+                    Attack: {poke.base.Attack}
+                    <br/>
+                    Defense: {poke.base.Defense}
+                    <br/> 
                     Speed: {poke.base.Speed}
                     
           </Typography>

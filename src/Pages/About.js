@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   gridEdit: {
     display: `flex`,
       flexWrap: `wrap`,
-      justifyContent: `space-between`,
+      justifyContent: `center`,
       alignContent: `space-around`,
       padding: `5%`,
       paddingBottom: `10%`,
