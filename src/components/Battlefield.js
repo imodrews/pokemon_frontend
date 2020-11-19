@@ -86,7 +86,23 @@ const dropped = (e) => {
         setSelectedPoke([])
     }
     
-    const selectWinner = () => {    
+    //POST the winner data 
+   const postWinner = (winner) => {
+     fetch('http://localhost:8080/score', {
+       method: 'POST',
+       headers: { 
+         'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(winner)
+     })
+      .then(res => res.json())
+      .then(res => console.log(res))
+   }
+  
+
+
+    const selectWinner = (winner) => {    
         if (playerOne === playerTwo) {
           return "Oops it's a Tie!";
         } else if (
@@ -94,8 +110,11 @@ const dropped = (e) => {
           (playerOne === "scissors" && playerTwo === "paper") ||
           (playerOne === "paper" && playerTwo === "rock")
         ) {
+          //avoke the function with the POST 
+          //postWinner("Player One Wins")
           return "Player One Wins!";
         } else {
+          //postWinner("Player Two Wins")
           return "Player Two Wins!";
         }
       };
