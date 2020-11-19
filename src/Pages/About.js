@@ -12,8 +12,8 @@ import { Box, BottomNavigation, BottomNavigationAction } from '@material-ui/core
 
 /*import the icons*/
 import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+
 
 /*import image */ 
 import Pikachu from "../images/pikachu.jpg"
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
       //backgroundColor: 'white',
   },
   root: {
-    maxWidth: 345,
+    minWidth: 300,
     marginLeft: '2em',
     marginTop: '3em',
     marginBottom: '3em',
@@ -54,6 +54,10 @@ const useStyles = makeStyles({
     '&:hover': {
       transform: 'scale(1.1)',
     } 
+  },
+  social: {
+    display: "flex",
+    justifyContent: "center"
   },
   media: {
     height: 140,
@@ -105,9 +109,8 @@ export default function MediaCard() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <BottomNavigation className={classes.root} >   
-        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
-        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+      <BottomNavigation className={classes.social} >   
+        <BottomNavigationAction label="@group4WBS" value="linkedIn" icon={<LinkedInIcon />} />
         <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
       </BottomNavigation>
     </Card>
@@ -127,9 +130,8 @@ export default function MediaCard() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <BottomNavigation className={classes.root} >   
-        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
-        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+      <BottomNavigation className={classes.social} >   
+        <BottomNavigationAction label="@group4WBS" value="linkedIn" icon={<LinkedInIcon />} />
         <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
       </BottomNavigation>
     </Card>
@@ -149,9 +151,8 @@ export default function MediaCard() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <BottomNavigation className={classes.root} >   
-        <BottomNavigationAction label="@group4WBS" value="facebook" icon={<FacebookIcon />} />
-        <BottomNavigationAction label="@group4WBS" value="twitter" icon={<TwitterIcon />} />
+      <BottomNavigation className={classes.social} >   
+        <BottomNavigationAction label="@group4WBS" value="linkedIn" icon={<LinkedInIcon />} />
         <BottomNavigationAction label="@group4WBS" value="github" icon={<GitHubIcon />} />
       </BottomNavigation>
     </Card>
